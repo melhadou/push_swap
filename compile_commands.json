@@ -1,0 +1,15 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-c",
+      "-Iincludes",
+      "-o",
+      "src/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/mohamed/Dev/cursus/push_swap",
+    "file": "/home/mohamed/Dev/cursus/push_swap/src/main.c",
+    "output": "/home/mohamed/Dev/cursus/push_swap/src/main.o"
+  }
+]
