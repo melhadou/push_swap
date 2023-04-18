@@ -1,7 +1,6 @@
 SRC = push_swap
 CC = cc
-CFLAGS = 
-
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address 
 INC = -Iincludes
 SRC_DIR = src/
 SRC_FILES = main.c lst_utils.c ft_funcs.c
@@ -17,7 +16,7 @@ $(SRC): $(OBJ)
 
 # compiling
 %.o : %.c 
-	$(CC)  -c $(INC) $< -o $@
+	$(CC) $(CFLAGS) -c $(INC) $< -o $@
 
 clean:
 	$(RM) $(OBJ)

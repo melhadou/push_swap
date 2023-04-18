@@ -6,6 +6,8 @@ int main(int argc, char *argv[])
 	t_node *tmp;
 	size_t i;
 
+	node = NULL; // Initialize node to NULL
+	tmp = NULL; // Initialize tmp to NULL
 	i = 0;
 	if (argc == 1)
 	{
@@ -18,18 +20,19 @@ int main(int argc, char *argv[])
 		{
 			tmp = lst_new();
 			tmp->val = ft_atoi(argv[i]);
-			lst_add_back(&node, tmp);
+			if (!node)
+				node = tmp;
+			else
+				lst_add_back(&node, tmp);
 			i++;
 		}
-		
-		tmp = node;
-		
-		while (tmp->next)
+	
+		while (node)
 		{
-			printf("val --> %d\n", tmp->val);
-			tmp = tmp->next;
+			printf("val --> %d\n", node->val);
+			node = node->next;
 		}
-		printf("size >> %d\n",lst_size(node));
+		printf("size >> %d\n", lst_size(node));
 	}
 
 	return (0);

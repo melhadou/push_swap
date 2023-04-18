@@ -23,30 +23,32 @@ t_node	*lst_last(t_node *lst)
 
 void lst_add_back(t_node **lst, t_node *new)
 {
-	t_node	*tmp;
+	t_node *tmp;
 
 	if (!lst || !new)
-		return ;
-	else if (!*lst)
-		*lst = new;
-	else
+		return;
+	if (!*lst) // If lst is NULL, assign new to it directly
 	{
-		tmp = lst_last(*lst);
-		tmp->next = new;
+		*lst = new;
+		return;
 	}
+	tmp = lst_last(*lst);
+	tmp->next = new;
 }
 
-int	lst_size(t_node *lst)
+int lst_size(t_node *lst)
 {
+	int size = 0;
 	t_node *tmp;
-	size_t	i;
 
-	i = 0;
-	tmp = lst;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		i++;
+	if (!lst) {  // check for null pointer
+		return size;
 	}
-	return (i);
+	tmp = lst;
+	while (tmp)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	return size;
 }
