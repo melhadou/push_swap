@@ -4,7 +4,7 @@ CFLAGS =
 
 INC = -Iincludes
 SRC_DIR = src/
-SRC_FILES = main.c utils.c
+SRC_FILES = main.c lst_utils.c ft_funcs.c
 CFILES = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 OBJ = $(CFILES:%.c=%.o)

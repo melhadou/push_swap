@@ -3,16 +3,10 @@
 int main(int argc, char *argv[])
 {
 	t_node *node;
+	t_node *tmp;
+	size_t i;
 
-	node = lst_new();
-	node->next = lst_new();
-	node->next->next = lst_new();
-	node->next->next->next = lst_new();
-
-	node->val = 1;
-	node->next->val = 2;
-	node->next->next->val = 3;
-	node->next->next->next->val = 4;
+	i = 0;
 	if (argc == 1)
 	{
 		printf("enter some values");
@@ -20,10 +14,22 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		printf("val -> %d",node->val);
-		printf("val -> %d\n",node->next->val);
-		printf("val -> %d\n",node->next->next->val);
-		printf("val -> %d\n",node->next->next->next->val);
+		while (argv[i])
+		{
+			tmp = lst_new();
+			tmp->val = ft_atoi(argv[i]);
+			lst_add_back(&node, tmp);
+			i++;
+		}
+		
+		tmp = node;
+		
+		while (tmp->next)
+		{
+			printf("val --> %d\n", tmp->val);
+			tmp = tmp->next;
+		}
+		printf("size >> %d\n",lst_size(node));
 	}
 
 	return (0);
