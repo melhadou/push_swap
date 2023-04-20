@@ -5,15 +5,36 @@
 #	include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 
-typedef struct t_node {
-	int val;
-	struct t_node *next;
-} t_node;
+// stack struct
+typedef struct	t_stack {
+	int	val;
+	int rank;
+	struct t_stack	*next;
+} t_stack;
 
-t_node *lst_new(void);
-t_node	*lst_last(t_node *lst);
-void lst_add_back(t_node **lst, t_node *new);
+// lists funcs
+t_stack	*lst_new(void);
+t_stack	*lst_last_node(t_stack *lst);
+void	lst_add_back(t_stack **lst, t_stack *new);
+void lst_free(t_stack **stack);
+int	lst_size(t_stack *lst);
+
+// libft funcs
 int	ft_atoi(const char *nptr);
-int	lst_size(t_node *lst);
+
+// algo funcs
+void	sa(t_stack **a, int print);
+void	sb(t_stack **b, int print);
+void	ss(t_stack **a, t_stack **b);
+void	pb(t_stack **b, t_stack **a, int print);
+void	pa(t_stack **a, t_stack **b, int print);
+void	ra(t_stack **a, int print);
+void	rb(t_stack **b, int print);
+void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a, int print);
+void	rrb(t_stack **b, int print);
+void	rrr(t_stack **a, t_stack **b);
+
 #endif

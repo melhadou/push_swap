@@ -1,17 +1,18 @@
 #include "push_swap.h"
+#include <stdio.h>
 
-t_node *lst_new(void)
+t_stack *lst_new(void)
 {
-	t_node *tmp;
-	tmp = malloc(sizeof(t_node));
+	t_stack *tmp;
+	tmp = malloc(sizeof(t_stack));
 	tmp->val = 0;
 	tmp->next = NULL;
 	return tmp;
 }
 
-t_node	*lst_last(t_node *lst)
+t_stack	*lst_last_node(t_stack *lst)
 {
-	t_node	*tmp;
+	t_stack	*tmp;
 
 	if (!lst)
 		return (NULL);
@@ -21,9 +22,9 @@ t_node	*lst_last(t_node *lst)
 	return (tmp);
 }
 
-void lst_add_back(t_node **lst, t_node *new)
+void lst_add_back(t_stack **lst, t_stack *new)
 {
-	t_node *tmp;
+	t_stack *tmp;
 
 	if (!lst || !new)
 		return;
@@ -32,18 +33,16 @@ void lst_add_back(t_node **lst, t_node *new)
 		*lst = new;
 		return;
 	}
-	tmp = lst_last(*lst);
+	tmp = lst_last_node(*lst);
 	tmp->next = new;
 }
 
-int lst_size(t_node *lst)
+int	lst_size(t_stack *lst)
 {
-	int size = 0;
-	t_node *tmp;
+	int	size;
+	t_stack *tmp;
 
-	if (!lst) {  // check for null pointer
-		return size;
-	}
+	size = 0;
 	tmp = lst;
 	while (tmp)
 	{
@@ -51,4 +50,18 @@ int lst_size(t_node *lst)
 		tmp = tmp->next;
 	}
 	return size;
+}
+
+void lst_free(t_stack **stack)
+{
+	t_stack *tmp;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		free(tmp);
+		tmp = (*stack)->next;
+	}
+	free(stack);
+	free(tmp);
 }

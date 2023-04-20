@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address 
 INC = -Iincludes
 SRC_DIR = src/
-SRC_FILES = main.c lst_utils.c ft_funcs.c
+SRC_FILES = main.c lst_utils.c ft_funcs.c utils.c
 CFILES = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 OBJ = $(CFILES:%.c=%.o)
