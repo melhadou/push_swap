@@ -37,4 +37,6 @@ void	rra(t_stack **a, int print);
 void	rrb(t_stack **b, int print);
 void	rrr(t_stack **a, t_stack **b);
 
+// sorting funcs
+t_stack	*make_lst_copy(t_stack **lst);
 #endif

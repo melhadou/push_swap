@@ -3,12 +3,12 @@
 int main(int argc, char *argv[])
 {
 	t_stack *a;
-	t_stack *b;
+	// t_stack *b;
 	t_stack *tmp;
 	size_t i;
 
 	a = NULL; // Initialize a to NULL
-	b = NULL; // Initialize b to NULL
+	// b = NULL; // Initialize b to NULL
 	tmp = NULL; // Initialize tmp to NULL
 
 	i = 1;
@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
 		printf("enter some values");
 		return (0);
 	}
-
 	else
 	{
 		while (argv[i])
@@ -33,27 +32,36 @@ int main(int argc, char *argv[])
 		}
 
 		
-		printf("size a >> %d,\n\n", lst_size(a));
-		tmp = a;
-		while (tmp)
-		{
-			printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
-			tmp = tmp->next;
-		}
+		// printf("size a >> %d,\n\n", lst_size(a));
+		// tmp = a;
+		// while (tmp)
+		// {
+		// 	printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
+		// 	tmp = tmp->next;
+		// }
 
+		// // rra(&a, 1);
 		// rra(&a, 1);
-		rra(&a, 1);
 
-		printf("\nsize a >> %d,\n\n", lst_size(a));
-		tmp = a;
-		while (tmp)
-		{
-			printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
-			tmp = tmp->next;
-		}
+		// printf("\nsize a >> %d,\n\n", lst_size(a));
+		// tmp = a;
+		// while (tmp)
+		// {
+		// 	printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
+		// 	tmp = tmp->next;
+		// }
 
-		tmp = b;
-		printf("\nsize b >> %d,\n\n", lst_size(b));
+		// tmp = b;
+		// printf("\nsize b >> %d,\n\n", lst_size(b));
+		// while (tmp)
+		// {
+		// 	printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
+		// 	tmp = tmp->next;
+		// }
+
+		tmp = NULL;
+		tmp = make_lst_copy(&a);
+		// printf("\nsize tmp >> %d,\n\n", lst_size(tmp));
 		while (tmp)
 		{
 			printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);

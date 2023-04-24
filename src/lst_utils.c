@@ -6,6 +6,7 @@ t_stack *lst_new(void)
 	t_stack *tmp;
 	tmp = malloc(sizeof(t_stack));
 	tmp->val = 0;
+	tmp->rank = 0;
 	tmp->next = NULL;
 	return tmp;
 }
