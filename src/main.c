@@ -59,8 +59,15 @@ int main(int argc, char *argv[])
 		// 	tmp = tmp->next;
 		// }
 
-		tmp = NULL;
-		tmp = make_lst_copy(&a);
+		// tmp = NULL;
+		// tmp = make_lst_copy(&a);
+		tmp = a;
+		if (check_doubles(&tmp))
+		{
+			write(2, "Error", 5);
+			return 1;
+		}
+		bubble_sort_lst(&tmp);
 		// printf("\nsize tmp >> %d,\n\n", lst_size(tmp));
 		while (tmp)
 		{

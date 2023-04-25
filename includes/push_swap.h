@@ -39,4 +39,6 @@ void	rrr(t_stack **a, t_stack **b);
 
 // sorting funcs
 t_stack	*make_lst_copy(t_stack **lst);
+void	bubble_sort_lst(t_stack **head);
+int	check_doubles(t_stack **head);
 #endif
