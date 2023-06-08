@@ -29,3 +29,21 @@ int	ft_atoi(const char *nptr)
 	}
 	return (n * sign);
 }
+
+void	ft_print_stacks(t_stack *a, t_stack *b)
+{
+	while (a || b)
+	{
+		if (a)
+		{
+			printf("a: %d\t | ",a->val);
+			a = a->next;
+		}
+		if (b)
+		{
+			printf("b ==> val --> %d",b->val);
+			b = b->next;
+		}
+		printf("\n");
+	}
+}

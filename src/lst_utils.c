@@ -1,5 +1,4 @@
 #include "push_swap.h"
-#include <stdio.h>
 
 t_stack *lst_new(void)
 {

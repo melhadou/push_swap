@@ -3,12 +3,12 @@
 int main(int argc, char *argv[])
 {
 	t_stack *a;
-	// t_stack *b;
+	t_stack *b;
 	t_stack *tmp;
 	size_t i;
 
 	a = NULL; // Initialize a to NULL
-	// b = NULL; // Initialize b to NULL
+	b = NULL; // Initialize b to NULL
 	tmp = NULL; // Initialize tmp to NULL
 
 	i = 1;
@@ -31,49 +31,20 @@ int main(int argc, char *argv[])
 			i++;
 		}
 
-		
-		// printf("size a >> %d,\n\n", lst_size(a));
-		// tmp = a;
-		// while (tmp)
-		// {
-		// 	printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
-		// 	tmp = tmp->next;
-		// }
-
-		// // rra(&a, 1);
-		// rra(&a, 1);
-
-		// printf("\nsize a >> %d,\n\n", lst_size(a));
-		// tmp = a;
-		// while (tmp)
-		// {
-		// 	printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
-		// 	tmp = tmp->next;
-		// }
-
-		// tmp = b;
-		// printf("\nsize b >> %d,\n\n", lst_size(b));
-		// while (tmp)
-		// {
-		// 	printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
-		// 	tmp = tmp->next;
-		// }
-
-		// tmp = NULL;
-		// tmp = make_lst_copy(&a);
 		tmp = a;
 		if (check_doubles(&tmp))
 		{
 			write(2, "Error", 5);
 			return 1;
 		}
+
+		tmp = make_lst_copy(&a);
 		bubble_sort_lst(&tmp);
-		// printf("\nsize tmp >> %d,\n\n", lst_size(tmp));
-		while (tmp)
-		{
-			printf("val --> %d\t rank --> %d\n", tmp->val,tmp->rank);
-			tmp = tmp->next;
-		}
+		copy_rank(tmp, a);
+		b = lst_new();
+		// ft_print_stacks(a, b);
+		first_phase(&a,&b);
+		ft_print_stacks(a, b);
 	}
 	return (0);
 }

@@ -1,4 +1,3 @@
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -6,6 +5,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# define CHUNK_SIZE 25
 
 // stack struct
 typedef struct	t_stack {
@@ -13,6 +13,13 @@ typedef struct	t_stack {
 	int rank;
 	struct t_stack	*next;
 } t_stack;
+
+// chunks struct
+typedef struct t_chunks {
+	int start;
+	int end;
+	int size;
+} t_chunks;
 
 // lists funcs
 t_stack	*lst_new(void);
@@ -23,6 +30,9 @@ int	lst_size(t_stack *lst);
 
 // libft funcs
 int	ft_atoi(const char *nptr);
+
+// for debug
+void	ft_print_stacks(t_stack *a, t_stack *b);
 
 // algo funcs
 void	sa(t_stack **a, int print);
@@ -41,4 +51,15 @@ void	rrr(t_stack **a, t_stack **b);
 t_stack	*make_lst_copy(t_stack **lst);
 void	bubble_sort_lst(t_stack **head);
 int	check_doubles(t_stack **head);
+t_stack	*set_rank(t_stack **head, t_stack **sorted);
+void copy_rank(t_stack *head1, t_stack *head2);
+
+// chunks
+t_chunks	*find_chunks(t_stack **a);
+int	find_from_top(t_stack *a, t_chunks chunk);
+int	find_from_tail(t_stack *a, t_chunks chunk);
+void	send_to_top(int pos, t_stack **a, t_stack **b);
+void	send_to_tail(int pos, t_stack **a, t_stack **b);
+
+void	first_phase(t_stack **a, t_stack **b);
 #endif

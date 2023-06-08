@@ -1,6 +1,7 @@
 #include "push_swap.h"
 
-t_stack *make_lst_copy(t_stack **lst) {
+t_stack *make_lst_copy(t_stack **lst)
+{
 	t_stack *copy;
 	t_stack *current;
 	t_stack *tmp;
@@ -13,11 +14,9 @@ t_stack *make_lst_copy(t_stack **lst) {
 	{
 		tmp = lst_new();
 		tmp->val = current->val;
+		tmp->rank = current->rank;
 		tmp->next = NULL;
-		if (!copy)
-			copy = tmp;
-		else
-			lst_add_back(&copy, tmp);
+		lst_add_back(&copy, tmp);
 		current = current->next;
 	}
 	return copy;
@@ -72,4 +71,21 @@ int	check_doubles(t_stack **head)
 	}
 
 	return 0;
+}
+
+void copy_rank(t_stack *head1, t_stack *head2)
+{
+ 	t_stack *current1;
+ 	t_stack *current2;
+
+	current1 = head1;
+  while (current1 != NULL) {
+		current2 = head2;
+		while (current2 != NULL) {
+			if (current1->val == current2->val)
+				current2->rank = current1->rank;
+			current2 = current2->next;
+		}
+		current1 = current1->next;
+  }
 }
