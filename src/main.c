@@ -41,9 +41,9 @@ int main(int argc, char *argv[])
 		tmp = make_lst_copy(&a);
 		bubble_sort_lst(&tmp);
 		copy_rank(tmp, a);
-		b = lst_new();
-		// ft_print_stacks(a, b);
-		first_phase(&a,&b);
+		int phase = 0;
+			first_phase(&a,&b, phase);
+		printf("lst_size(a): %d\n",lst_size(a));
 		ft_print_stacks(a, b);
 	}
 	return (0);

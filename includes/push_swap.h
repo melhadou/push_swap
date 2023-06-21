@@ -61,5 +61,5 @@ int	find_from_tail(t_stack *a, t_chunks chunk);
 void	send_to_top(int pos, t_stack **a, t_stack **b);
 void	send_to_tail(int pos, t_stack **a, t_stack **b);
 
-void	first_phase(t_stack **a, t_stack **b);
+void	first_phase(t_stack **a, t_stack **b, int phase);
 #endif

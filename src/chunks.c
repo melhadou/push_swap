@@ -64,8 +64,6 @@ int	find_from_tail(t_stack *a, t_chunks chunk)
 		tmp = tmp->next;
 	}
 
-	middle = 1337;
-
 	while (tmp)
 	{
 		if (tmp->rank >= chunk.start && tmp->rank <= chunk.end)
@@ -74,8 +72,7 @@ int	find_from_tail(t_stack *a, t_chunks chunk)
 		tmp = tmp->next;
 	}
 
-	if (middle >= 1000)
-		middle = -1;
+	printf("middle %d\n", middle);
 	return (middle);
 }
 
@@ -103,7 +100,7 @@ void	send_to_tail(int pos, t_stack **a, t_stack **b)
 	pb(b, a, 1);
 }
 
-void	first_phase(t_stack **a, t_stack **b)
+void	first_phase(t_stack **a, t_stack **b, int phase)
 {
 	t_chunks *ch;
 	int top_pos;
@@ -113,8 +110,8 @@ void	first_phase(t_stack **a, t_stack **b)
 	ch = find_chunks(a);
 	while (1)
 	{
-		top_pos = find_from_top(*a, ch[0]);
-		tail_pos = find_from_tail(*a, ch[0]);
+		top_pos = find_from_top(*a, ch[phase]);
+		tail_pos = find_from_tail(*a, ch[phase]);
 		printf("tail %d, top %d\n", tail_pos, top_pos);
 		if (tail_pos == -1 && top_pos == -1)
 			break ;
