@@ -8,14 +8,10 @@ t_chunks	*find_chunks(t_stack **a)
 
 	i = 0;
 	length = lst_size(*a) / CHUNK_SIZE;
-
 	res = malloc(sizeof(t_chunks) * length);
-	
 	if (!res)
 		return NULL;
-
-	res[0].size = length;
-	
+	res[i].size = length;
 	while (i < length)
 	{
 		res[i].start = CHUNK_SIZE * i;
@@ -71,8 +67,7 @@ int	find_from_tail(t_stack *a, t_chunks chunk)
 		middle++;
 		tmp = tmp->next;
 	}
-
-	printf("middle %d\n", middle);
+	// printf("middle %d\n", middle);
 	return (middle);
 }
 
@@ -100,27 +95,35 @@ void	send_to_tail(int pos, t_stack **a, t_stack **b)
 	pb(b, a, 1);
 }
 
-void	first_phase(t_stack **a, t_stack **b, int phase)
+void	first_phase(t_stack **a, t_stack **b)
 {
 	t_chunks *ch;
-	int top_pos;
-	int tail_pos;
+	int	top_pos;
+	int	tail_pos;
+	int	phase;
+	int i;
 
-	int i = 0;
+	i = 0;
 	ch = find_chunks(a);
-	while (1)
-	{
-		top_pos = find_from_top(*a, ch[phase]);
-		tail_pos = find_from_tail(*a, ch[phase]);
-		printf("tail %d, top %d\n", tail_pos, top_pos);
-		if (tail_pos == -1 && top_pos == -1)
-			break ;
-		if (tail_pos < top_pos)
-			send_to_tail(tail_pos, a, b);
-		else
-			send_to_top(top_pos, a, b);
-		if (i == 100)
-		 break;
-		i++;
-	}
+	phase = ch[0].size;
+	printf("phase %d\n", phase);
+	// while (phase)
+	// {
+		while (1)
+		{
+			top_pos = find_from_top(*a, ch[phase]);
+			tail_pos = find_from_tail(*a, ch[phase]);
+			// printf("ch[phase] = %d, tail_pos = %d, top %d\n",ch[phase].end, tail_pos, top_pos);
+			if (tail_pos == 1 && top_pos == -1)
+				break ;
+			if (tail_pos < top_pos)
+				send_to_tail(tail_pos, a, b);
+			else
+				send_to_top(top_pos, a, b);
+			if (i == 100)
+				break ;
+			i++;
+		}
+	// 	phase--;
+	// }
 }

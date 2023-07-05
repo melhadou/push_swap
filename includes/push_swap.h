@@ -5,7 +5,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define CHUNK_SIZE 25
+# define CHUNK_SIZE 5
 
 // stack struct
 typedef struct	t_stack {
@@ -13,6 +13,12 @@ typedef struct	t_stack {
 	int rank;
 	struct t_stack	*next;
 } t_stack;
+
+/******* t_chunks ******
+	* start - start index of chunk
+	* end - end index of chunk
+	* size - total size of chunks
+*/
 
 // chunks struct
 typedef struct t_chunks {
@@ -61,5 +67,5 @@ int	find_from_tail(t_stack *a, t_chunks chunk);
 void	send_to_top(int pos, t_stack **a, t_stack **b);
 void	send_to_tail(int pos, t_stack **a, t_stack **b);
 
-void	first_phase(t_stack **a, t_stack **b, int phase);
+void	first_phase(t_stack **a, t_stack **b);
 #endif

@@ -73,7 +73,7 @@ int	check_doubles(t_stack **head)
 	return 0;
 }
 
-void copy_rank(t_stack *head1, t_stack *head2)
+void	copy_rank(t_stack *head1, t_stack *head2)
 {
  	t_stack *current1;
  	t_stack *current2;

@@ -41,7 +41,7 @@ void	ft_print_stacks(t_stack *a, t_stack *b)
 		}
 		if (b)
 		{
-			printf("b ==> val --> %d\t b ==> rank --> %d",b->val, b->rank);
+			printf("b: %d\t b->rank: %d\t| ",b->val, b->rank);
 			b = b->next;
 		}
 		printf("\n");

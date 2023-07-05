@@ -35,16 +35,17 @@ int main(int argc, char *argv[])
 		if (check_doubles(&tmp))
 		{
 			write(2, "Error", 5);
-			return 1;
+			return (1);
 		}
 
 		tmp = make_lst_copy(&a);
+		// sorting the list so we can rank it
 		bubble_sort_lst(&tmp);
+		// we copy ranks to the original list
 		copy_rank(tmp, a);
-		int phase = 0;
-			first_phase(&a,&b, phase);
-		printf("lst_size(a): %d\n",lst_size(a));
+		first_phase(&a,&b);
 		ft_print_stacks(a, b);
+		printf("\nlst_size(a): %d\n\n\n\n",lst_size(a));
 	}
 	return (0);
 }
