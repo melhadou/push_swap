@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:08 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/08 12:12:39 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/09 16:54:32 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 		// int	cost_a = nt_instruction(a, 80);
 		// send_to_top_or_tail(cost_a, &a);
 		send_all(&a, &b);
-		ft_print_stacks(a, b);
+		// ft_print_stacks(a, b);
 	}
 	return (0);
 }

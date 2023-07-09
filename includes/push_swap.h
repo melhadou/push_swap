@@ -5,7 +5,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define CHUNK_SIZE 5
+# define CHUNK_SIZE 20
 
 // stack struct
 typedef struct	t_stack {
@@ -74,4 +74,6 @@ int	nt_instruction(t_stack *a, int rank);
 void	send_to_top_or_tail(int pos, t_stack **a);
 void	send_range(int start, int end, t_stack **a, t_stack **b);
 void	send_all(t_stack **a, t_stack **b);
+void	return_to_a(t_stack **a, t_stack **b);
+int nb_rank_position(t_stack *stack, int rank);
 #endif

@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:29 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/08 11:32:29 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/09 15:44:48 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void ra(t_stack **a, int print)
 
 	if (!a || !*a)
 		return ;
+	if (lst_size(*a) == 1)
+		return ;
 	tmp = lst_last_node(*a);
 	tmp->next = (*a);
 	(*a) = (*a)->next;
@@ -96,6 +98,8 @@ void rb(t_stack **b, int print)
 	t_stack *tmp;
 
 	if (!b || !*b)
+		return ;
+	if (lst_size(*b) == 1)
 		return ;
 	tmp = lst_last_node(*b);
 	tmp->next = (*b);
@@ -118,6 +122,8 @@ void rra(t_stack **a, int print)
 
 	if (!a || !*a)
 		return ;
+	if (lst_size(*a) == 1)
+		return ;
 	b_lst = (*a);
 	while (b_lst->next->next)
 		b_lst = b_lst->next;
@@ -134,6 +140,8 @@ void rrb(t_stack **b, int print)
 	t_stack *b_lst;
 
 	if (!b || !*b)
+		return ;
+	if (lst_size(*b) == 1)
 		return ;
 	b_lst = (*b);
 	while (b_lst->next->next)

@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:58:25 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/08 12:23:13 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/09 16:55:02 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,63 +81,55 @@ int	nt_instruction(t_stack *a, int rank)
 	return (cost);
 }
 
-void	send_to_top(int pos, t_stack **a)
+void	send_to_top(int pos, t_stack **b)
 {
 	if (pos < 0)
 		return ;
 	while (pos)
 	{
-		ra(a, 1);
+		rb(b, 1);
 		pos--;
 	}
 }
 
-void	send_to_tail(int pos, t_stack **a)
+void	send_to_tail(int pos, t_stack **b)
 {
 	if (pos < 0)
 		return ;
 	while (pos)
 	{
-		rra(a, 1);
+		rrb(b, 1);
 		pos--;
 	}
 }
 
-void	send_to_top_or_tail(int pos, t_stack **a)
+void	send_to_top_or_tail(int pos, t_stack **b)
 {
 	int size;
 
-	size = lst_size(*a);
+	size = lst_size(*b);
 	if (pos > size / 2)
-		send_to_tail(size - pos, a);
+		send_to_tail(size - pos, b);
 	else
-		send_to_top(pos, a);
+		send_to_top(pos, b);
 }
 
 void	send_range(int start, int end, t_stack **a, t_stack **b)
 {
-	int i;
 	int size;
-	t_stack *tmp;
 
-	i = 0;
 	size = lst_size(*a);
-	if (start < 0 || start > size || end < 0 || end > size )
-		return ;
-	while (i <= end - start)
+	while(*a && size)
 	{
-		tmp = *a;
-		while (tmp)
+		if ((*a)->rank >= start && (*a)->rank <= end)
 		{
-			if (tmp->rank == i + start)
-			{
-				pb(b, a, 1);
-				if (tmp->rank > size / 2)
-					rb(b, 1);
-			}
-			tmp = tmp->next;
+			pb(b, a, 1);
+			if ((*b)->rank < (start + end) / 2 )
+				rb(b, 1);
 		}
-		i++;
+		else
+			ra(a, 1);
+		size--;
 	}
 }
 
@@ -148,17 +140,71 @@ void	send_all(t_stack **a, t_stack **b)
 	int start;
 
 	size = lst_size(*a);
-	start = 0;
-	end = 5;
+	start = size / 2;
+	end = size / 2;
+	while (size)
+	{
+		start -= CHUNK_SIZE;
+		end += CHUNK_SIZE;
+		// printf("size %d\t start -> %d\t end -> %d\n",size,start, end);
+		send_range(start, end, a, b);
+		size = lst_size(*a);
+	}
+	return_to_a(a, b);
+}
+
+int nb_rank_position(t_stack *stack, int rank)
+{
+	int pos;
+
+	pos = 1;
+	while (stack)
+	{
+		if (stack->rank == rank)
+			return (pos);
+		stack = stack->next;
+		pos++;
+	}
+	return (pos);
+}
+
+void	return_to_a(t_stack **a, t_stack **b)
+{
+	int size;
+	int nb_count;
+
+	size = 0;
+	nb_count = lst_size(*b);
 	while (1)
 	{
-		if (end > size)
-			end = size;
-		printf("start = %d , end = %d, size = %d \n", start, end, size);
-		send_range(start , end, a, b);
-		start += 5;
-		end += 5;
-		if (start >= size)
+		if ((*b)->rank == lst_size(*b))
+		{
+			pa(a, b, 1);
 			break ;
+		}
+		rb(b, 1);
+	}
+	
+	while (*b)
+	{
+		size = lst_size(*b);
+		if ((*b)->rank + 1 == (*a)->rank)
+			pa(a, b, 1);
+		else if (lst_last_node(*a)->rank == (*a)->rank - 1)
+			rra(a, 1);
+		else if (lst_last_node(*a)->rank == nb_count)
+		{
+			pa(a, b, 1);
+			ra(a, 1);
+		}
+		else if (lst_last_node(*a)->rank < (*b)->rank)
+		{
+			pa(a, b, 1);
+			ra(a, 1);
+		}
+		else if (nb_rank_position(*b, (*a)->rank - 1) > size / 2)
+			rrb(b, 1);
+		else
+			rb(b, 1);
 	}
 }
