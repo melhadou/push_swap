@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/08 11:32:08 by melhadou          #+#    #+#             */
+/*   Updated: 2023/07/08 12:12:39 by melhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int main(int argc, char *argv[])
@@ -5,6 +17,7 @@ int main(int argc, char *argv[])
 	t_stack *a;
 	t_stack *b;
 	t_stack *tmp;
+	int size;
 	size_t i;
 
 	a = NULL; // Initialize a to NULL
@@ -23,7 +36,6 @@ int main(int argc, char *argv[])
 		{
 			tmp = lst_new();
 			tmp->val = ft_atoi(argv[i]);
-			tmp->rank = i;
 			if (!a)
 				a = tmp;
 			else
@@ -32,20 +44,18 @@ int main(int argc, char *argv[])
 		}
 
 		tmp = a;
-		if (check_doubles(&tmp))
+		if (check_doubles(tmp))
 		{
-			write(2, "Error", 5);
-			return (1);
+			write(2, "Error\n", 6);
+			exit(1);
 		}
 
-		tmp = make_lst_copy(&a);
-		// sorting the list so we can rank it
-		bubble_sort_lst(&tmp);
-		// we copy ranks to the original list
-		copy_rank(tmp, a);
-		first_phase(&a,&b);
+		set_rank(a);
+		size = lst_size(a);
+		// int	cost_a = nt_instruction(a, 80);
+		// send_to_top_or_tail(cost_a, &a);
+		send_all(&a, &b);
 		ft_print_stacks(a, b);
-		printf("\nlst_size(a): %d\n\n\n\n",lst_size(a));
 	}
 	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_algo.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/08 11:32:25 by melhadou          #+#    #+#             */
+/*   Updated: 2023/07/08 11:32:31 by melhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack *make_lst_copy(t_stack **lst)
@@ -48,13 +60,13 @@ void	bubble_sort_lst(t_stack **head)
 	}
 }
 
-int	check_doubles(t_stack **head)
+int	check_doubles(t_stack *head)
 {
 	t_stack	*tmp;
 	t_stack	*current;
 
-	tmp = *head;
-	current = *head;
+	tmp = head;
+	current = head;
 
 	while (current)
 	{

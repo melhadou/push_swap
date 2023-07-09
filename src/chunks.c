@@ -71,31 +71,8 @@ int	find_from_tail(t_stack *a, t_chunks chunk)
 	return (middle);
 }
 
-void	send_to_top(int pos, t_stack **a, t_stack **b)
-{
-	if (pos < 0)
-		return ;
-	while (pos)
-	{
-		ra(a, 1);
-		pos--;
-	}
-	pb(b, a, 1);
-}
 
-void	send_to_tail(int pos, t_stack **a, t_stack **b)
-{
-	if (pos < 0)
-		return ;
-	while (pos)
-	{
-		rra(a, 1);
-		pos--;
-	}
-	pb(b, a, 1);
-}
-
-void	first_phase(t_stack **a, t_stack **b)
+void	first_phase(t_stack **a)
 {
 	t_chunks *ch;
 	int	top_pos;
@@ -117,9 +94,9 @@ void	first_phase(t_stack **a, t_stack **b)
 			if (tail_pos == 1 && top_pos == -1)
 				break ;
 			if (tail_pos < top_pos)
-				send_to_tail(tail_pos, a, b);
+				send_to_tail(tail_pos, a);
 			else
-				send_to_top(top_pos, a, b);
+				send_to_top(top_pos, a);
 			if (i == 100)
 				break ;
 			i++;

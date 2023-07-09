@@ -54,18 +54,24 @@ void	rrb(t_stack **b, int print);
 void	rrr(t_stack **a, t_stack **b);
 
 // sorting funcs
-t_stack	*make_lst_copy(t_stack **lst);
-void	bubble_sort_lst(t_stack **head);
-int	check_doubles(t_stack **head);
-t_stack	*set_rank(t_stack **head, t_stack **sorted);
-void copy_rank(t_stack *head1, t_stack *head2);
+// t_stack	*make_lst_copy(t_stack **lst);
+// void	bubble_sort_lst(t_stack **head);
+int	check_doubles(t_stack *head);
+// t_stack	*set_rank(t_stack **head, t_stack **sorted);
+// void copy_rank(t_stack *head1, t_stack *head2);
 
 // chunks
 t_chunks	*find_chunks(t_stack **a);
 int	find_from_top(t_stack *a, t_chunks chunk);
 int	find_from_tail(t_stack *a, t_chunks chunk);
-void	send_to_top(int pos, t_stack **a, t_stack **b);
-void	send_to_tail(int pos, t_stack **a, t_stack **b);
+void	send_to_top(int pos, t_stack **a);
+void	send_to_tail(int pos, t_stack **a);
 
-void	first_phase(t_stack **a, t_stack **b);
+void	first_phase(t_stack **a);
+int	find_max(t_stack *a);
+void	set_rank(t_stack *a);
+int	nt_instruction(t_stack *a, int rank); 
+void	send_to_top_or_tail(int pos, t_stack **a);
+void	send_range(int start, int end, t_stack **a, t_stack **b);
+void	send_all(t_stack **a, t_stack **b);
 #endif
