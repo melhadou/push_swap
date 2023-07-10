@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/10 16:12:42 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:45:49 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,7 @@ void	rrb(t_stack **b, int print);
 void	rrr(t_stack **a, t_stack **b);
 
 // sorting funcs
-// t_stack	*make_lst_copy(t_stack **lst);
-// void	bubble_sort_lst(t_stack **head);
 int	check_doubles(t_stack *head);
-// t_stack	*set_rank(t_stack **head, t_stack **sorted);
-// void copy_rank(t_stack *head1, t_stack *head2);
 
 // chunks
 t_chunks	*find_chunks(t_stack **a);

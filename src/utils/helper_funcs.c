@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:58:25 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/10 19:14:53 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:45:17 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	set_rank(t_stack *a)
 		}
 	}
 }
+
 
 // functon that caluclate the cost of sending the desired number. and it finds it by its rank
 // and check how much instruction that will be needed to send it from a to  b. and it checks 
