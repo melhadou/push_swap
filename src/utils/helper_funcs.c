@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:58:25 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/09 16:55:02 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:14:53 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,4 +207,19 @@ void	return_to_a(t_stack **a, t_stack **b)
 		else
 			rb(b, 1);
 	}
+}
+
+int	check_is_ranked(t_stack *a)
+{
+	int i;
+
+	i = 1;
+	while (a)
+	{
+		if (a->rank != i)
+			return (1);
+		a = a->next;
+		i++;
+	}
+	return (0);
 }

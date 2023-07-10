@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:08 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/09 16:54:32 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/10 19:13:51 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
 	t_stack *a;
 	t_stack *b;
 	t_stack *tmp;
-	int size;
 	size_t i;
 
 	a = NULL; // Initialize a to NULL
@@ -51,11 +50,15 @@ int main(int argc, char *argv[])
 		}
 
 		set_rank(a);
-		size = lst_size(a);
-		// int	cost_a = nt_instruction(a, 80);
-		// send_to_top_or_tail(cost_a, &a);
-		send_all(&a, &b);
-		// ft_print_stacks(a, b);
+
+		// check number if there are sorted
+		if (check_is_ranked(a))
+			send_all(&a, &b);
+		else
+		{
+			exit(1);
+		}
+		ft_print_stacks(a, b);
 	}
 	return (0);
 }

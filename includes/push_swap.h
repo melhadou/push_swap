@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
+/*   Updated: 2023/07/10 16:12:42 by melhadou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -76,4 +88,6 @@ void	send_range(int start, int end, t_stack **a, t_stack **b);
 void	send_all(t_stack **a, t_stack **b);
 void	return_to_a(t_stack **a, t_stack **b);
 int nb_rank_position(t_stack *stack, int rank);
+int	check_is_ranked(t_stack *a);
+
 #endif

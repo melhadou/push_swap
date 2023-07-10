@@ -1,15 +1,107 @@
 [
-  {
-    "arguments": [
-      "/usr/bin/cc",
-      "-c",
-      "-Iincludes",
-      "-o",
-      "src/main.o",
-      "src/main.c"
-    ],
-    "directory": "/home/mohamed/Dev/cursus/push_swap",
-    "file": "/home/mohamed/Dev/cursus/push_swap/src/main.c",
-    "output": "/home/mohamed/Dev/cursus/push_swap/src/main.o"
-  }
+ {
+  "directory": "/home/melhadou/Dev/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "-Iincludes",
+   "src/main.c",
+   "-o",
+   "src/main.o"
+  ],
+  "file": "src/main.c"
+ },
+ {
+  "directory": "/home/melhadou/Dev/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "-Iincludes",
+   "src/lst_utils.c",
+   "-o",
+   "src/lst_utils.o"
+  ],
+  "file": "src/lst_utils.c"
+ },
+ {
+  "directory": "/home/melhadou/Dev/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "-Iincludes",
+   "src/ft_funcs.c",
+   "-o",
+   "src/ft_funcs.o"
+  ],
+  "file": "src/ft_funcs.c"
+ },
+ {
+  "directory": "/home/melhadou/Dev/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "-Iincludes",
+   "src/utils.c",
+   "-o",
+   "src/utils.o"
+  ],
+  "file": "src/utils.c"
+ },
+ {
+  "directory": "/home/melhadou/Dev/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "-Iincludes",
+   "src/sorting_algo.c",
+   "-o",
+   "src/sorting_algo.o"
+  ],
+  "file": "src/sorting_algo.c"
+ },
+ {
+  "directory": "/home/melhadou/Dev/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "-Iincludes",
+   "src/chunks.c",
+   "-o",
+   "src/chunks.o"
+  ],
+  "file": "src/chunks.c"
+ },
+ {
+  "directory": "/home/melhadou/Dev/push_swap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-c",
+   "-Iincludes",
+   "src/utils/helper_funcs.c",
+   "-o",
+   "src/utils/helper_funcs.o"
+  ],
+  "file": "src/utils/helper_funcs.c"
+ }
 ]
