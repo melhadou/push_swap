@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:08 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/10 19:13:51 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:24:41 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ int main(int argc, char *argv[])
 		set_rank(a);
 
 		// check number if there are sorted
-		if (check_is_ranked(a))
-			send_all(&a, &b);
-		else
-		{
-			exit(1);
-		}
+		sort_three(&a);
+		// if (check_is_ranked(a))
+		// 	send_all(&a, &b);
+		// else
+		// {
+		// 	exit(1);
+		// }
 		ft_print_stacks(a, b);
 	}
 	return (0);

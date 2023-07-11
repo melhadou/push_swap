@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:58:25 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/10 19:45:17 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:16:30 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	set_rank(t_stack *a)
 // and check how much instruction that will be needed to send it from a to  b. and it checks 
 // how to send . is it by ra or rra.
 
-int	nt_instruction(t_stack *a, int rank)
+int	nth_instruction(t_stack *a, int rank)
 {
 	int cost;
 	t_stack *tmp;
@@ -154,7 +154,7 @@ void	send_all(t_stack **a, t_stack **b)
 	return_to_a(a, b);
 }
 
-int nb_rank_position(t_stack *stack, int rank)
+int	nb_rank_position(t_stack *stack, int rank)
 {
 	int pos;
 
@@ -166,7 +166,7 @@ int nb_rank_position(t_stack *stack, int rank)
 		stack = stack->next;
 		pos++;
 	}
-	return (pos);
+	return (-1);
 }
 
 void	return_to_a(t_stack **a, t_stack **b)

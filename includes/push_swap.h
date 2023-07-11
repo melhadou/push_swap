@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/10 19:45:49 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/11 17:23:54 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	send_to_tail(int pos, t_stack **a);
 void	first_phase(t_stack **a);
 int	find_max(t_stack *a);
 void	set_rank(t_stack *a);
-int	nt_instruction(t_stack *a, int rank); 
+int	nth_instruction(t_stack *a, int rank); 
 void	send_to_top_or_tail(int pos, t_stack **a);
 void	send_range(int start, int end, t_stack **a, t_stack **b);
 void	send_all(t_stack **a, t_stack **b);
@@ -86,4 +86,6 @@ void	return_to_a(t_stack **a, t_stack **b);
 int nb_rank_position(t_stack *stack, int rank);
 int	check_is_ranked(t_stack *a);
 
+// sort three
+void	sort_three(t_stack **a);
 #endif
