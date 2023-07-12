@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/11 17:23:54 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:19:22 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "../libs/libft/libft.h"
 # define CHUNK_SIZE 20
 
 // stack struct
@@ -51,6 +52,8 @@ int	ft_atoi(const char *nptr);
 
 // for debug
 void	ft_print_stacks(t_stack *a, t_stack *b);
+
+void 	ft_error(void);
 
 // algo funcs
 void	sa(t_stack **a, int print);
@@ -88,4 +91,10 @@ int	check_is_ranked(t_stack *a);
 
 // sort three
 void	sort_three(t_stack **a);
+
+// init stack funcs
+
+void	init_stack(t_stack **a,char **argv);
+char	**parse_argv(char **argv);
+int	valid_args(char **args);
 #endif
