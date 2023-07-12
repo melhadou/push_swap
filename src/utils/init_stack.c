@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:52:44 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/12 16:25:17 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:38:35 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	init_stack(t_stack **a,char **argv)
 	while (args[i])
 	{
 		tmp = lst_new();
+		// protect from < MAXINT vals
+		check_overflow(args[i]);
 		tmp->val = ft_atoi(args[i]);
 		if (!a)
 			a = &tmp;
@@ -104,7 +106,7 @@ static void	is_number(char *str)
 	}
 }
 
-int	valid_args(char **args)
+void	valid_args(char **args)
 {
 	int i;
 
@@ -114,5 +116,16 @@ int	valid_args(char **args)
 		is_number(args[i]);
 		i++;
 	}
-	return (1);
+}
+
+void	check_overflow(char *str)
+{
+	int nb;
+	char *nb_str;
+
+	nb = ft_atoi(str);
+	nb_str = ft_itoa(nb);
+
+	if (ft_strncmp(nb_str, str, -1))
+		ft_error();
 }

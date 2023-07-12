@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/12 16:19:22 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/12 16:38:14 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void	sort_three(t_stack **a);
 
 void	init_stack(t_stack **a,char **argv);
 char	**parse_argv(char **argv);
-int	valid_args(char **args);
+void	valid_args(char **args);
+void	check_overflow(char *str);
 #endif
