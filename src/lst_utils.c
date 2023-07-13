@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:22 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/08 11:32:32 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/12 19:49:15 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_stack *lst_new(void)
 {
 	t_stack *tmp;
 	tmp = malloc(sizeof(t_stack));
+	// protect malloc
 	tmp->val = 0;
 	tmp->rank = 0;
 	tmp->next = NULL;
