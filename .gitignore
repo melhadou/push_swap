@@ -24,5 +24,6 @@
 .cache/
 compile_commands.json
 push_swap
+push_swap_vis
 checker
 # End of https://www.toptal.com/developers/gitignore/api/c

@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:58:25 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 15:17:23 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:44:32 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,7 +185,6 @@ void	return_to_a(t_stack **a, t_stack **b)
 		}
 		rb(b, 1);
 	}
-	
 	while (*b)
 	{
 		size = lst_size(*b);
