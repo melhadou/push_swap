@@ -6,13 +6,11 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:52:44 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/12 19:46:35 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/13 11:32:22 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 void	init_stack(t_stack **a,char **argv)
 {
@@ -153,8 +151,6 @@ char	**parse_argv(char **argv)
 	return (list);
 }
 
-
-
 static void	is_number(char *str)
 {
 	int	i;
@@ -194,4 +190,5 @@ void	check_overflow(char *str)
 
 	if (ft_strncmp(nb_str, str, -1))
 		ft_error();
+	free(nb_str);
 }

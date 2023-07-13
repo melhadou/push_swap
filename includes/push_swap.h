@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/12 19:02:03 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:14:53 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,13 @@ int	check_is_ranked(t_stack *a);
 
 // sort three
 void	sort_three(t_stack **a);
+
+// sort four
+void	sort_four(t_stack **a, t_stack **b);
+void	push_smallest(t_stack **a, t_stack **b);
+
+// sort five
+void	sort_five(t_stack **a, t_stack **b);
 
 // ft_free funcs
 void	ft_free_stack(t_stack **stack);

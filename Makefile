@@ -1,8 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
-# CFLAGS = -g -fsanitize=address
-
+CFLAGS = -Wall -Wextra -Werror -fsanitize=leak -static-libasan -g
 LIBFT = libs/libft
 
 INC = -Iincludes
@@ -11,12 +9,15 @@ LIBS = $(addprefix $(LIBFT), /libft.a)
 SRC_DIR = src/
 SRC_FILES = main.c lst_utils.c ft_funcs.c utils.c sorting_algo.c chunks.c
 
+SORTING_DIR= $(SRC_DIR)sorting/
+SORTING_FILES = sort_five.c sort_four.c sort_others.c
 
 UTILS_DIR = $(SRC_DIR)utils/
 UTILS_FILES = helper_funcs.c sort_three.c init_stack.c errors.c ft_free.c
 
 CFILES = $(addprefix $(SRC_DIR), $(SRC_FILES))
 CFILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))
+CFILES += $(addprefix $(SORTING_DIR), $(SORTING_FILES))
 
 OBJ = $(CFILES:%.c=%.o)
 
@@ -29,9 +30,6 @@ libft:
 # Linking
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBS) -o $(NAME)
-
-address: $(OBJ) libft
-	$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBS) -fsanitize=address -o $(NAME)
 
 # compiling
 %.o : %.c 

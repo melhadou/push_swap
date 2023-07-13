@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:08 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/12 21:09:28 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/13 15:19:54 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 {
 	t_stack *a;
 	t_stack *b;
+	int size;
 
 	a = NULL; // Initialize a to NULL
 	b = NULL; // Initialize b to NULL
@@ -23,18 +24,24 @@ int main(int argc, char *argv[])
 		return (0);
 
 	init_stack(&a, argv);
-	// check number if there are sorted
-	sort_three(&a);
-	// if (check_is_ranked(a))
-	// 	send_all(&a, &b);
-	// else
-	// {
-	// 	exit(1);
-	// }
-	ft_print_stacks(a, b);
+	size = lst_size(a);
+	if (!check_is_ranked(a))
+		return (0);
+	else if (size == 2)
+		sa(&a, 1);
+	else if (size == 3)
+		sort_three(&a);
+	else if (size == 4)
+		sort_four(&a, &b);
+	else if (size == 5)
+		sort_five(&a, &b);
+	else
+		send_all(&a, &b);
+	// ft_print_stacks(a, b);
+
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return (0);
 }
