@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 15:14:53 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:15:55 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ void	sort_five(t_stack **a, t_stack **b);
 void	ft_free_stack(t_stack **stack);
 void	ft_free_string(char **str);
 
+// tweaks funcs
+int	ft_new_atoi(const char *nptr);
 // init stack funcs
 
 void	init_stack(t_stack **a,char **argv);

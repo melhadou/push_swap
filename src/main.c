@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:08 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 15:19:54 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:21:25 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int main(int argc, char *argv[])
 		sort_five(&a, &b);
 	else
 		send_all(&a, &b);
-	// ft_print_stacks(a, b);
 
+	// ft_print_stacks(a, b);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 
-	// system("leaks push_swap");
+	// system("mtrace push_swap");
 	return (0);
 }

@@ -13,7 +13,7 @@ SORTING_DIR= $(SRC_DIR)sorting/
 SORTING_FILES = sort_five.c sort_four.c sort_others.c
 
 UTILS_DIR = $(SRC_DIR)utils/
-UTILS_FILES = helper_funcs.c sort_three.c init_stack.c errors.c ft_free.c
+UTILS_FILES = helper_funcs.c sort_three.c init_stack.c errors.c ft_free.c ft_tweaks.c
 
 CFILES = $(addprefix $(SRC_DIR), $(SRC_FILES))
 CFILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))

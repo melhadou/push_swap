@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_tweaks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 22:09:11 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 18:14:38 by melhadou         ###   ########.fr       */
+/*   Created: 2023/07/13 18:15:11 by melhadou          #+#    #+#             */
+/*   Updated: 2023/07/13 18:17:35 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-static int	is_neg(int s)
-{
-	if (s == 1)
-		return (-1);
-	return (0);
-}
-
-int	ft_atoi(const char *nptr)
+int	ft_new_atoi(const char *nptr)
 {
 	unsigned long long	n;
 	int					i;
@@ -35,8 +28,9 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		n = n * 10 + (nptr[i] - '0');
-		if (n > 9223372036854775807)
-			return (is_neg(sign));
+		if ((n > 2147483647 && sign == 1)
+			|| (n > 2147483648 && sign == -1))
+			ft_error();
 		i++;
 	}
 	return (n * sign);

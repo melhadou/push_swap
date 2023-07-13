@@ -1,44 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_four.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 11:37:34 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 18:26:18 by melhadou         ###   ########.fr       */
+/*   Created: 2023/07/13 18:02:01 by melhadou          #+#    #+#             */
+/*   Updated: 2023/07/13 18:03:26 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	sort_four(t_stack **a, t_stack **b)
+int	ft_strcmp(char *s1,char *s2)
 {
-	push_smallest(a, b);
-	sort_three(a);
-	pa(a, b, 1);
-}
+	int i;
 
-void	push_smallest(t_stack **a, t_stack **b)
-{
-	t_stack *tmp;
-	int rank;
-
-	rank = (*a)->rank;
-	tmp = *a;
-	while (tmp)
-	{
-		if (tmp->rank <= rank)
-			rank = tmp->rank;
-		tmp = tmp->next;
-	}
-	while (*a)
-	{
-		if ((*a)->rank == rank)
-		{
-			pb(b, a, 1);
-			return ;
-		}
-		ra(a, 1);
-	}
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

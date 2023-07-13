@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:52:44 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 11:32:22 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:18:51 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	init_stack(t_stack **a,char **argv)
 	tmp = *a;
 	while (args[i])
 	{
-		check_overflow(args[i]);
+		// check_overflow(args[i]);
 		tmp = lst_new();
 		// protect from < MAXINT vals
-		tmp->val = ft_atoi(args[i]);
+		tmp->val = ft_new_atoi(args[i]);
 		lst_add_back(a, tmp);
 		i++;
 	}
@@ -180,15 +180,17 @@ void	valid_args(char **args)
 	}
 }
 
-void	check_overflow(char *str)
-{
-	int nb;
-	char *nb_str;
+// void	check_overflow(char *str)
+// {
+// 	int nb;
+// 	char *nb_str;
 
-	nb = ft_atoi(str);
-	nb_str = ft_itoa(nb);
-
-	if (ft_strncmp(nb_str, str, -1))
-		ft_error();
-	free(nb_str);
-}
+// 	nb = ft_atoi(str);
+// 	printf("nb = %d\n", nb);
+// 	nb_str = ft_itoa(nb);
+// 	printf("nb_str = %s\n", nb_str);
+// 	// if (ft_strncmp(nb_str, str, -1))
+// 	// 	ft_error();
+// 	printf("ft_strncmp => %d\n", ft_strcmp(nb_str, str));
+// 	free(nb_str);
+// }
