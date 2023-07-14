@@ -6,12 +6,13 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:37:34 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 18:26:18 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/14 12:16:24 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// normed
 void	sort_four(t_stack **a, t_stack **b)
 {
 	push_smallest(a, b);
@@ -21,8 +22,8 @@ void	sort_four(t_stack **a, t_stack **b)
 
 void	push_smallest(t_stack **a, t_stack **b)
 {
-	t_stack *tmp;
-	int rank;
+	t_stack	*tmp;
+	int		rank;
 
 	rank = (*a)->rank;
 	tmp = *a;

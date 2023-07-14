@@ -6,21 +6,24 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:22 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/12 19:49:15 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/14 11:51:29 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *lst_new(void)
+// normed
+t_stack	*lst_new(void)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
+
 	tmp = malloc(sizeof(t_stack));
-	// protect malloc
+	if (!tmp)
+		return (NULL);
 	tmp->val = 0;
 	tmp->rank = 0;
 	tmp->next = NULL;
-	return tmp;
+	return (tmp);
 }
 
 t_stack	*lst_last_node(t_stack *lst)
@@ -35,16 +38,16 @@ t_stack	*lst_last_node(t_stack *lst)
 	return (tmp);
 }
 
-void lst_add_back(t_stack **lst, t_stack *new)
+void	lst_add_back(t_stack **lst, t_stack *new)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!lst || !new)
-		return;
-	if (!*lst) // If lst is NULL, assign new to it directly
+		return ;
+	if (!*lst)
 	{
 		*lst = new;
-		return;
+		return ;
 	}
 	tmp = lst_last_node(*lst);
 	tmp->next = new;
@@ -52,8 +55,8 @@ void lst_add_back(t_stack **lst, t_stack *new)
 
 int	lst_size(t_stack *lst)
 {
-	int	size;
-	t_stack *tmp;
+	int		size;
+	t_stack	*tmp;
 
 	size = 0;
 	tmp = lst;
@@ -62,12 +65,12 @@ int	lst_size(t_stack *lst)
 		size++;
 		tmp = tmp->next;
 	}
-	return size;
+	return (size);
 }
 
-void lst_free(t_stack **stack)
+void	lst_free(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	while (tmp)

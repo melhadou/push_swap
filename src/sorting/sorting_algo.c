@@ -6,11 +6,58 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:25 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/10 19:45:38 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/14 15:10:42 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// normed
+int	find_max(t_stack *a)
+{
+	int		max;
+	t_stack	*tmp;
+
+	tmp = a;
+	max = 0;
+	while (tmp)
+	{
+		if (tmp->rank == 0)
+		{
+			max = tmp->val;
+			break ;
+		}
+		tmp = tmp->next;
+	}
+	tmp = a;
+	while (tmp)
+	{
+		if (tmp->val > max && tmp->rank == 0)
+			max = tmp->val;
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
+void	set_rank(t_stack *a)
+{
+	int		size;
+	int		max;
+	t_stack	*tmp;
+
+	size = lst_size(a);
+	while (size)
+	{
+		tmp = a;
+		max = find_max(tmp);
+		while (tmp)
+		{
+			if (tmp->val == max && tmp->rank == 0)
+				tmp->rank = size--;
+			tmp = tmp->next;
+		}
+	}
+}
 
 int	check_doubles(t_stack *head)
 {
@@ -19,37 +66,16 @@ int	check_doubles(t_stack *head)
 
 	tmp = head;
 	current = head;
-
 	while (current)
 	{
 		tmp = current->next;
 		while (tmp)
 		{
 			if (tmp->val == current->val)
-			{
-				return 1;
-			}
+				return (1);
 			tmp = tmp->next;
 		}
 		current = current->next;
 	}
-
-	return 0;
-}
-
-void	copy_rank(t_stack *head1, t_stack *head2)
-{
- 	t_stack *current1;
- 	t_stack *current2;
-
-	current1 = head1;
-  while (current1 != NULL) {
-		current2 = head2;
-		while (current2 != NULL) {
-			if (current1->val == current2->val)
-				current2->rank = current1->rank;
-			current2 = current2->next;
-		}
-		current1 = current1->next;
-  }
+	return (0);
 }

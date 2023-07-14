@@ -1,20 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   push_instructions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/12 15:32:40 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/14 15:12:04 by melhadou         ###   ########.fr       */
+/*   Created: 2023/07/14 12:07:35 by melhadou          #+#    #+#             */
+/*   Updated: 2023/07/14 12:15:28 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // normed
-void	ft_error(void)
+void	pb(t_stack **b, t_stack **a, int print)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	t_stack	*tmp;
+
+	if (!a || !*a || !b)
+		return ;
+	tmp = *a;
+	(*a) = (*a)->next;
+	tmp->next = *b;
+	*b = tmp;
+	if (print)
+		write(1, "pb\n", 3);
+}
+
+void	pa(t_stack **a, t_stack **b, int print)
+{
+	t_stack	*tmp;
+
+	if (!b || !*b || !a)
+		return ;
+	tmp = *b;
+	(*b) = (*b)->next;
+	tmp->next = *a;
+	*a = tmp;
+	if (print)
+		write(1, "pa\n", 3);
 }

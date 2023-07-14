@@ -6,14 +6,13 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/14 08:01:09 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/14 16:13:56 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-#	include <stddef.h>
+# include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -21,94 +20,97 @@
 # define CHUNK_SIZE 25
 
 // stack struct
-typedef struct	t_stack {
-	int	val;
-	int rank;
+typedef struct t_stack {
+	int				val;
+	int				rank;
 	struct t_stack	*next;
-} t_stack;
+}	t_stack;
 
-/******* t_chunks ******
-	* start - start index of chunk
-	* end - end index of chunk
-	* size - total size of chunks
-*/
+/* ***************		Linked List Function ***************** */
 
-// chunks struct
-typedef struct t_chunks {
-	int start;
-	int end;
-	int size;
-} t_chunks;
-
-// lists funcs
 t_stack	*lst_new(void);
 t_stack	*lst_last_node(t_stack *lst);
 void	lst_add_back(t_stack **lst, t_stack *new);
-void lst_free(t_stack **stack);
-int	lst_size(t_stack *lst);
+int		lst_size(t_stack *lst);
+void	lst_free(t_stack **stack);
 
-// libft funcs
-int	ft_atoi(const char *nptr);
+/* ***************		Error Function ************************ */
 
-// for debug
-void	ft_print_stacks(t_stack *a, t_stack *b);
+void	ft_error(void);
 
-void 	ft_error(void);
+/* ***************		Sorting Functions ********************* */
 
-// algo funcs
-void	sa(t_stack **a, int print);
-void	sb(t_stack **b, int print);
-void	ss(t_stack **a, t_stack **b);
+int		find_max(t_stack *a);
+void	set_rank(t_stack *a);
+int		check_doubles(t_stack *head);
+
+/* ***************	 Other Sorting Functions **************** */
+
+void	send_range(int start, int end, t_stack **a, t_stack **b);
+void	send_all(t_stack **a, t_stack **b);
+void	return_to_a_helper(t_stack **a, t_stack **b, int size_b);
+void	return_to_a(t_stack **a, t_stack **b);
+
+/* ***************		Sort four Functions ******************** */
+
+void	sort_four(t_stack **a, t_stack **b);
+void	push_smallest(t_stack **a, t_stack **b);
+
+/* ***************		Sort three Functions ****************** */
+
+void	sort_three(t_stack **a);
+
+/* ***************		Sort five Functions ****************** */
+
+void	sort_five(t_stack **a, t_stack **b);
+
+/* ***************		Ft_free Functions ******************** */
+
+void	ft_free_stack(t_stack **stack);
+void	ft_free_string(char **str);
+
+/* ***************		Helper Functions ********************* */
+
+void	send_to_top(int pos, t_stack **b);
+void	send_to_tail(int pos, t_stack **b);
+void	send_to_top_or_tail(int pos, t_stack **b);
+int		nb_rank_position(t_stack *stack, int rank);
+int		check_is_ranked(t_stack *a);
+
+/* ***************		Tweaks Functions ********************** */
+
+int		ft_new_atoi(const char *nptr);
+size_t	dbl_str_len(char **arr);
+void	is_number(char *str);
+
+/* ***************		Init Stak Functions ******************** */
+
+void	init_stack(t_stack **a, char **argv);
+char	**append_to_arr(char **arr, char *str);
+char	**parse_argv(char **argv);
+void	valid_args(char **args);
+
+/* ***************		Push Instructions Functions ************* */
+
 void	pb(t_stack **b, t_stack **a, int print);
 void	pa(t_stack **a, t_stack **b, int print);
-void	ra(t_stack **a, int print);
-void	rb(t_stack **b, int print);
-void	rr(t_stack **a, t_stack **b);
+
+/* ************		Reverse Rotate Instructions Functions ******* */
+
 void	rra(t_stack **a, int print);
 void	rrb(t_stack **b, int print);
 void	rrr(t_stack **a, t_stack **b);
 
-// sorting funcs
-int	check_doubles(t_stack *head);
+/* *************		Rotate Instructions Functions ************** */
 
-// chunks
-t_chunks	*find_chunks(t_stack **a);
-int	find_from_top(t_stack *a, t_chunks chunk);
-int	find_from_tail(t_stack *a, t_chunks chunk);
-void	send_to_top(int pos, t_stack **a);
-void	send_to_tail(int pos, t_stack **a);
+void	ra(t_stack **a, int print);
+void	rb(t_stack **b, int print);
+void	rr(t_stack **a, t_stack **b);
 
-void	first_phase(t_stack **a);
-int	find_max(t_stack *a);
-void	set_rank(t_stack *a);
-int	nth_instruction(t_stack *a, int rank); 
-void	send_to_top_or_tail(int pos, t_stack **a);
-void	send_range(int start, int end, t_stack **a, t_stack **b);
-void	send_all(t_stack **a, t_stack **b);
-void	return_to_a(t_stack **a, t_stack **b);
-int nb_rank_position(t_stack *stack, int rank);
-int	check_is_ranked(t_stack *a);
+/* ***************		Swap Instructions Functions ************* */
 
-// sort three
-void	sort_three(t_stack **a);
+void	sa(t_stack **a, int print);
+void	sb(t_stack **b, int print);
+void	ss(t_stack **a, t_stack **b);
 
-// sort four
-void	sort_four(t_stack **a, t_stack **b);
-void	push_smallest(t_stack **a, t_stack **b);
-
-// sort five
-void	sort_five(t_stack **a, t_stack **b);
-
-// ft_free funcs
-void	ft_free_stack(t_stack **stack);
-void	ft_free_string(char **str);
-
-// tweaks funcs
-int	ft_new_atoi(const char *nptr);
-// init stack funcs
-
-void	init_stack(t_stack **a,char **argv);
-char	**parse_argv(char **argv);
-void	valid_args(char **args);
-void	check_overflow(char *str);
 #endif

@@ -8,13 +8,14 @@ INC = -Iincludes
 LIBS = $(addprefix $(LIBFT), /libft.a)
 
 SRC_DIR = src/
-SRC_FILES = main.c lst_utils.c ft_funcs.c utils.c sorting_algo.c chunks.c
+SRC_FILES = main.c
 
 SORTING_DIR= $(SRC_DIR)sorting/
-SORTING_FILES = sort_five.c sort_four.c sort_others.c
+SORTING_FILES = sort_five.c sort_four.c sort_others.c sort_three.c sorting_algo.c
+SORTING_FILES += push_instructions.c rotate_instructions.c reverse_rotate_instructions.c swap_instructions.c
 
 UTILS_DIR = $(SRC_DIR)utils/
-UTILS_FILES = helper_funcs.c sort_three.c init_stack.c errors.c ft_free.c ft_tweaks.c
+UTILS_FILES = helper_funcs.c init_stack.c errors.c ft_free.c ft_tweaks.c lst_utils.c
 
 CFILES = $(addprefix $(SRC_DIR), $(SRC_FILES))
 CFILES += $(addprefix $(UTILS_DIR), $(UTILS_FILES))

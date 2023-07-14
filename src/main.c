@@ -6,23 +6,23 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 11:32:08 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/14 07:20:57 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/14 16:42:24 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+// normed
+int	main(int argc, char *argv[])
 {
-	t_stack *a;
-	t_stack *b;
-	int size;
+	t_stack	*a;
+	t_stack	*b;
+	int		size;
 
-	a = NULL; // Initialize a to NULL
-	b = NULL; // Initialize b to NULL
+	a = NULL;
+	b = NULL;
 	if (argc == 1)
 		return (0);
-
 	init_stack(&a, argv);
 	size = lst_size(a);
 	if (!check_is_ranked(a))
@@ -37,11 +37,7 @@ int main(int argc, char *argv[])
 		sort_five(&a, &b);
 	else
 		send_all(&a, &b);
-
-	// ft_print_stacks(a, b);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
-
-	// system("mtrace push_swap");
 	return (0);
 }
