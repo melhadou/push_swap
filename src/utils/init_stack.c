@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:52:44 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 18:18:51 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/13 21:28:23 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ void	init_stack(t_stack **a,char **argv)
 	tmp = *a;
 	while (args[i])
 	{
-		// check_overflow(args[i]);
 		tmp = lst_new();
-		// protect from < MAXINT vals
 		tmp->val = ft_new_atoi(args[i]);
 		lst_add_back(a, tmp);
 		i++;
@@ -39,51 +37,6 @@ void	init_stack(t_stack **a,char **argv)
 		ft_error();
 	set_rank(*a);
 }
-
-// static void check_valid(char *str)
-// {
-// 	int i;
-// 	int j;
-
-// 	i = 0;
-// 	j = 0;
-
-// 	if (!str[i])
-// 		ft_error();
-// 	while(str[i])
-// 	{
-// 		if (str[i] != ' ' && str[i] != '\t')
-// 			j = 1;
-// 		i++;
-// 	}
-// 	if (!j)
-// 		ft_error();
-// }
-
-
-// char	**parse_argv(char **argv)
-// {
-// 	char	**args;
-// 	char *tmp;
-// 	char *tmp2;
-// 	int i;
-
-// 	if (!argv[1][0])
-// 		ft_error();
-// 	tmp = ft_strdup(argv[1]);
-// 	i = 2;
-// 	while (argv[i])
-// 	{
-// 		check_valid(argv[i]);
-// 		tmp2 = tmp;
-// 		tmp = join_three_string(tmp2, " ", argv[i]);
-// 		free(tmp2);
-// 		i++;
-// 	}
-// 	args = ft_split(tmp, ' ');
-// 	return (args);
-// }
-
 
 static size_t	dbl_str_len(char **arr)
 {
@@ -179,18 +132,3 @@ void	valid_args(char **args)
 		i++;
 	}
 }
-
-// void	check_overflow(char *str)
-// {
-// 	int nb;
-// 	char *nb_str;
-
-// 	nb = ft_atoi(str);
-// 	printf("nb = %d\n", nb);
-// 	nb_str = ft_itoa(nb);
-// 	printf("nb_str = %s\n", nb_str);
-// 	// if (ft_strncmp(nb_str, str, -1))
-// 	// 	ft_error();
-// 	printf("ft_strncmp => %d\n", ft_strcmp(nb_str, str));
-// 	free(nb_str);
-// }

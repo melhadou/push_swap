@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 14:58:25 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 18:44:32 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/14 11:08:41 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,13 +185,12 @@ void	return_to_a(t_stack **a, t_stack **b)
 		}
 		rb(b, 1);
 	}
+	
 	while (*b)
 	{
 		size = lst_size(*b);
 		if ((*b)->rank + 1 == (*a)->rank)
 			pa(a, b, 1);
-		else if (lst_last_node(*a)->rank == (*a)->rank - 1)
-			rra(a, 1);
 		else if (lst_last_node(*a)->rank == nb_count)
 		{
 			pa(a, b, 1);
@@ -202,11 +201,15 @@ void	return_to_a(t_stack **a, t_stack **b)
 			pa(a, b, 1);
 			ra(a, 1);
 		}
-		else if (nb_rank_position(*b, (*a)->rank - 1) > size / 2)
+		else if (nb_rank_position(*b, (*a)->rank - 1) > (size / 2) )
 			rrb(b, 1);
+		else if (lst_last_node(*a)->rank == (*a)->rank - 1)
+			rra(a, 1);
 		else
 			rb(b, 1);
 	}
+	while ((*a)->rank != 1)
+		rra(a, 1);
 }
 
 int	check_is_ranked(t_stack *a)

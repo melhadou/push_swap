@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/13 18:15:55 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/14 08:01:09 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libs/libft/libft.h"
-# define CHUNK_SIZE 20
+# define CHUNK_SIZE 25
 
 // stack struct
 typedef struct	t_stack {

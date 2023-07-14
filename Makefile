@@ -1,6 +1,7 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=leak -static-libasan -g
+CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror -fsanitize=leak -static-libasan -g
 LIBFT = libs/libft
 
 INC = -Iincludes
