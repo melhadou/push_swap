@@ -6,14 +6,14 @@
 /*   By: mohamed <melhadou@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:38:03 by mohamed           #+#    #+#             */
-/*   Updated: 2023/06/24 18:26:01 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/15 12:21:09 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000000000
+#  define BUFFER_SIZE 10000
 # endif
 # include <unistd.h>
 # include <stddef.h>

@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 08:12:23 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/15 11:50:03 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/15 12:36:52 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	apply_instruction(char *str, t_stack **a, t_stack **b)
 	else if (!ft_strcmp(str, "ra"))
 		ra(a, 0);
 	else if (!ft_strcmp(str, "rb"))
-		rb(a, 0);
+		rb(b, 0);
 	else if (!ft_strcmp(str, "rr"))
 		rr(a, b, 0);
 	else if (!ft_strcmp(str, "rra"))
 		rra(a, 0);
 	else if (!ft_strcmp(str, "rrb"))
-		rrb(a, 0);
+		rrb(b, 0);
 	else if (!ft_strcmp(str, "rrr"))
 		rrr(a, b, 0);
 	else
