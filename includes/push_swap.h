@@ -6,17 +6,17 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/14 16:13:56 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/15 11:16:02 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libs/libft/libft.h"
+# include "../libs/getnextline/get_next_line.h"
 # define CHUNK_SIZE 25
 
 // stack struct
@@ -112,5 +112,10 @@ void	rr(t_stack **a, t_stack **b);
 void	sa(t_stack **a, int print);
 void	sb(t_stack **b, int print);
 void	ss(t_stack **a, t_stack **b);
+
+/* ***************		Bonus Function ***************** */
+
+void	apply_instruction(char *str, t_stack **a, t_stack **b);
+int		check_is_sorted(t_stack *a);
 
 #endif
