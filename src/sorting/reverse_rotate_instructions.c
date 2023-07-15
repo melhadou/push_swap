@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 12:05:22 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/14 12:11:59 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/15 11:28:46 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ void	rrb(t_stack **b, int print)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int print)
 {
 	rra(a, 0);
 	rrb(b, 0);
-	write(1, "rrr\n", 4);
+	if (print)
+		write(1, "rrr\n", 4);
 }

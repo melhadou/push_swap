@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:12:41 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/15 11:16:02 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/15 11:29:14 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,13 @@ void	pa(t_stack **a, t_stack **b, int print);
 
 void	rra(t_stack **a, int print);
 void	rrb(t_stack **b, int print);
-void	rrr(t_stack **a, t_stack **b);
+void	rrr(t_stack **a, t_stack **b, int print);
 
 /* *************		Rotate Instructions Functions ************** */
 
 void	ra(t_stack **a, int print);
 void	rb(t_stack **b, int print);
-void	rr(t_stack **a, t_stack **b);
+void	rr(t_stack **a, t_stack **b, int print);
 
 /* ***************		Swap Instructions Functions ************* */
 

@@ -6,7 +6,7 @@
 /*   By: melhadou <melhadou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:52:44 by melhadou          #+#    #+#             */
-/*   Updated: 2023/07/14 16:39:13 by melhadou         ###   ########.fr       */
+/*   Updated: 2023/07/15 11:56:11 by melhadou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	init_stack(t_stack **a, char **argv)
 
 	i = 0;
 	args = parse_argv(argv);
+	if (!args)
+		return ;
 	valid_args(args);
 	tmp = *a;
 	while (args[i])
